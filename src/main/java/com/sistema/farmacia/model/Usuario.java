@@ -3,7 +3,7 @@ package com.sistema.farmacia.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-
+@Data
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
