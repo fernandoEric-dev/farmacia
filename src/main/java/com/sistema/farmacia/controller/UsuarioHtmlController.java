@@ -19,18 +19,29 @@ public class UsuarioHtmlController {
     public String salvarUsuario(
             @RequestParam String nomeUsuario,
             @RequestParam String email,
-            @RequestParam String telefone
+            @RequestParam String telefone,
+            @RequestParam String cpf,
+            @RequestParam String rua,
+            @RequestParam String bairro,
+            @RequestParam String cidade,
+            @RequestParam String cep,
+            @RequestParam String estado
     ) {
-        // Cria um novo usuário
         Usuario usuario = new Usuario();
         usuario.setNomeUsuario(nomeUsuario);
         usuario.setEmail(email);
         usuario.setTelefone(telefone);
+        
+        // --- NOVOS CAMPOS ---
+        usuario.setCpf(cpf);
+        usuario.setRua(rua);
+        usuario.setBairro(bairro);
+        usuario.setCidade(cidade);
+        usuario.setCep(cep);
+        usuario.setEstado(estado);
 
-        // Guarda no banco de dados (XAMPP)
         repository.save(usuario);
 
-        // Volta para a página do formulário após guardar
         return "redirect:/cadastro.html";
     }
 }
